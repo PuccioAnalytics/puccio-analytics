@@ -1,4 +1,44 @@
 import Image from "next/image";
+const packages = [
+  {
+    name: "Essential",
+    description: "For small businesses that need clear, consistent reporting.",
+    features: [
+      "Monthly Dashboard Updates",
+      "Sales Reporting",
+      "Inventory Reporting",
+      "Power BI Dashboard",
+      "Email Support",
+    ],
+  },
+  {
+    name: "Professional",
+    description: "For growing businesses that need deeper, more frequent insights.",
+    featured: true,
+    features: [
+      "Bi-Weekly Dashboard Updates",
+      "Executive Summary",
+      "Sales & Inventory Analytics",
+      "Custom KPI Tracking",
+      "Power BI Dashboard",
+      "Email Support",
+    ],
+  },
+  {
+    name: "Enterprise",
+    description: "For businesses that need ongoing analytics and strategic support.",
+    features: [
+      "Weekly Dashboard Updates",
+      "Executive KPI Reporting",
+      "Forecasting & Trend Analysis",
+      "Inventory Optimization Reports",
+      "Custom KPI Tracking",
+      "Strategy Meetings",
+      "Power BI Dashboard",
+    ],
+  },
+];
+
 const services = [
   {
     title: "Business Intelligence Dashboards",
@@ -168,14 +208,66 @@ export default function Home() {
       </section>
       <section id="services" className="px-6 py-24 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#2A9D8F]">
-              What We Do
-            </p>
+          <div className="grid gap-8 lg:grid-cols-3 mb-20">
+  {packages.map((pkg) => (
+    <div
+      key={pkg.name}
+      className={`rounded-3xl border p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl ${
+        pkg.featured
+          ? "border-[#2A9D8F] bg-[#F7FAFC]"
+          : "border-slate-200 bg-white"
+      }`}
+    >
+      <div className="flex items-center justify-between">
+  <h3 className="text-2xl font-bold text-[#0B2341]">
+    {pkg.name}
+  </h3>
 
-            <h2 className="mt-4 text-4xl font-bold tracking-tight text-[#0B2341] sm:text-5xl">
-              Analytics built around your business
-            </h2>
+  {pkg.featured && (
+    <span className="rounded-full bg-[#2A9D8F] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+      Most Popular
+    </span>
+  )}
+</div>
+
+      <p className="mt-3 text-slate-600">
+        {pkg.description}
+      </p>
+
+      <ul className="mt-8 space-y-4">
+        {pkg.features.map((feature) => (
+          <li
+            key={feature}
+            className="flex items-start gap-3 text-slate-700"
+          >
+            <span className="font-bold text-[#2A9D8F]">✓</span>
+            <span>{feature}</span>
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href="#contact"
+        className="mt-10 inline-block w-full rounded-full bg-[#2A9D8F] px-6 py-3 text-center font-semibold text-white transition hover:bg-[#23877b]"
+      >
+       Schedule Free Consultation
+      </a>
+    </div>
+  ))}
+</div>
+          <div className="mx-auto max-w-3xl text-center">
+           <p className="text-sm font-bold uppercase tracking-[0.25em] text-[#2A9D8F]">
+  Solutions
+</p>
+
+<h2 className="mt-4 text-4xl font-bold tracking-tight text-[#0B2341] sm:text-5xl">
+  Choose the level of analytics support that's right for your business
+</h2>
+
+<p className="mt-6 text-lg leading-8 text-slate-600">
+  Every business is different. During your free consultation, we'll recommend
+  the solution that best fits your goals, reporting needs, and budget.
+</p> 
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
               Clear reporting, practical insights, and custom solutions that
@@ -263,25 +355,25 @@ export default function Home() {
     <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
       {[
         {
-          number: "01",
+          number: "1",
           title: "Tell Me About Your Business",
           description:
             "We'll discuss your business, your goals, and the questions you want your data to answer.",
         },
         {
-          number: "02",
+          number: "2",
           title: "Share Your Data",
           description:
             "Send reports from your POS system, spreadsheets, or inventory software. No complicated setup required.",
         },
         {
-          number: "03",
+          number: "3",
           title: "Receive Your Dashboard",
           description:
             "I'll organize your data into a clean, interactive dashboard built specifically for your business.",
         },
         {
-          number: "04",
+          number: "4",
           title: "Make Better Decisions",
           description:
             "Use clear insights to improve sales, inventory, purchasing, and overall business performance.",
